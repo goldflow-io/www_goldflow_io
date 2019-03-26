@@ -1382,17 +1382,6 @@ body {
     flex: auto!important;
   }
 }
-.jq-selectbox li:hover,
-.jq-selectbox li.selected {
-  background-color: #decbb8;
-  color: #000000;
-}
-.jq-selectbox .jq-selectbox__trigger-arrow {
-  border-top-color: contrast(currentColor, #000000, #ffffff, 30%);
-}
-.jq-selectbox:hover .jq-selectbox__trigger-arrow {
-  border-top-color: #decbb8;
-}
 .cid-rk2Upn63by {
   background-image: url("../../../assets/images/goldflow-landing-page-background-2000x985.png");
 }
@@ -1402,6 +1391,7 @@ body {
 }
 .cid-rk2Upn63by .mbr-section-title {
   color: #ffffff;
+  text-align: left;
 }
 .cid-rkANUtVRYG {
   padding-top: 90px;
@@ -1433,6 +1423,7 @@ body {
 }
 .cid-rkANUtVRYG .mbr-text {
   color: #767676;
+  text-align: left;
 }
 .cid-rkANUtVRYG .media-container-column {
   display: -webkit-flex;
