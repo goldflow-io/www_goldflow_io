@@ -3,7 +3,7 @@ from Jumpscale import j
 class Package(j.baseclasses.threebot_package):
     """
     to start need to run 
-    kosmos -p "j.tools.threebot_packages.get('goldflow_io',giturl='https://github.com/goldflow-io/www_goldflow_io.git',branch='production')"
+    kosmos -p "j.tools.threebot_packages.get('goldflow_io',giturl='https://github.com/goldflow-io/www_goldflow_io.git',branch='master')"
     kosmos -p "j.servers.threebot.default.start(web=True, ssl=False)"
     """
     def _init(self, **kwargs):
