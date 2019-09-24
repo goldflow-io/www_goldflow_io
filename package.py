@@ -3,12 +3,12 @@ from Jumpscale import j
 class Package(j.baseclasses.threebot_package):
     """
     to start need to run 
-    kosmos -p "j.tools.threebot_packages.get('cultivo_earth',giturl='https://github.com/cultivo/www_cultivo_earth.git',branch='production')"
+    kosmos -p "j.tools.threebot_packages.get('goldflow_io',giturl='https://github.com/goldflow-io/www_goldflow_io.git',branch='production')"
     kosmos -p "j.servers.threebot.default.start(web=True, ssl=False)"
     """
     def _init(self, **kwargs):
         self.branch = kwargs["package"].branch or "master"
-        self.cultivo_earth = "https://github.com/cultivo/www_cultivo_earth.git"
+        self.goldflow_io = "https://github.com/goldflow-io/www_goldflow_io.git"
 
     def prepare(self):
         """
@@ -18,14 +18,14 @@ class Package(j.baseclasses.threebot_package):
         server = self.openresty
         server.install(reset=True)
         server.configure()
-        website = server.websites.get("cultivo_earth")
+        website = server.websites.get("goldflow_io")
         website.ssl = False
         website.port = 80
-        locations = website.locations.get("cultivo_earth")
+        locations = website.locations.get("goldflow_io")
         static_location = locations.locations_static.new()
         static_location.name = "static"
         static_location.path_url = "/"
-        path = j.clients.git.getContentPathFromURLorPath(self.cultivo_earth, branch=self.branch, pull=True)
+        path = j.clients.git.getContentPathFromURLorPath(self.goldflow_io, branch=self.branch, pull=True)
         static_location.path_location = path
         static_location.use_jumpscale_weblibs = True
         website.path = path
