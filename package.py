@@ -2,9 +2,10 @@ from Jumpscale import j
 
 class Package(j.baseclasses.threebot_package):
     """
-    to start need to run 
-    kosmos -p "j.tools.threebot_packages.get('goldflow_io',giturl='https://github.com/goldflow-io/www_goldflow_io.git',branch='master')"
-    kosmos -p "j.servers.threebot.default.start(web=True, ssl=False)"
+    kosmos -p
+    cl = j.servers.threebot.local_start_default()
+    cl.actors.package_manager.package_add(git_url="https://github.com/goldflow-io/www_goldflow_io")
+    we need to restart alpis tmux
     """
     def _init(self, **kwargs):
         self.branch = kwargs["package"].branch or "master"
@@ -18,9 +19,7 @@ class Package(j.baseclasses.threebot_package):
         server = self.openresty
         server.install(reset=True)
         server.configure()
-        website = server.websites.get("goldflow_io")
-        website.ssl = False
-        website.port = 80
+        website = server.get_from_port(8080)
         locations = website.locations.get("goldflow_io")
         static_location = locations.locations_static.new()
         static_location.name = "static"
