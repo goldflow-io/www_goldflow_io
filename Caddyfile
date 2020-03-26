@@ -5,7 +5,7 @@
     
     git {
         repo https://github.com/goldflow-io/www_goldflow_io.git
-        branch master
+        branch production
         hook /webhook "test9278"
         key ~/.ssh/id_rsa
         path . 
